@@ -7,14 +7,14 @@ import br.edu.univas.vo.*;
 import java.time.ZonedDateTime;
 
 public class PostController {
-
+	
     public void createPost(String username,
                            String content) {
-
+    	
         if (!Database.getUsers().contains(new User(username))) {
             throw new PostException("username not found");
         }
-
+        
         isNullOrEmpty(content, "content can not be empty");
         isLengthOk(content, "content has to be less than 150 characters");
 
